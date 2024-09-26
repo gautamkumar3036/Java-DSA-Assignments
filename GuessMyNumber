@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class guessMyNumber {
+    public static void main(String[] args) {
+        // Information of game
+        System.out.println(":: Welcome to the Guess My Number game!");
+        System.out.println(":: I'm thinking of a number between 1 and 100.");
+        System.out.println(":: Can you guess what it is?");
+        Scanner sc = new Scanner(System.in);
+
+        // Generate random Number
+        int randomNumber = (int)(Math.random()*100);
+
+        // Taking input of user number
+        int userNo =0;
+        int numberOfTries = 0;
+
+        // Conditional Statement
+
+        do {
+            System.out.print("Enter your guess :: ");
+            userNo = sc.nextInt();
+            numberOfTries++;
+
+            // if userNo is greater
+            if(userNo > randomNumber) System.out.println("lower then yours! Try again.");
+            // if userNo is lower
+            else if (userNo < randomNumber) System.out.println("Higher then yours! Try again");
+            // if you guessed it right
+            else {
+                System.out.println("Congratulations! You guessed the number in " + numberOfTries + " tries.");
+                break;
+            }
+        } while (userNo>=0);
+    }
+}
