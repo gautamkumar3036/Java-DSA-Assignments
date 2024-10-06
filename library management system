@@ -1,0 +1,65 @@
+package opps;
+class libraryapp{
+    String [] Book;
+    int noOfBooks;
+    libraryapp(){
+        this.Book=new String[100];
+        this.noOfBooks=0;
+        }
+
+        // Adding new book
+           void addBook(String Book){
+           this.Book[noOfBooks++]=Book;
+            System.out.println(Book+"has been added");
+        }
+        // Show available book
+        void displayBook(){
+            System.out.println("Avalible book are ::");
+            for (int i = 0; i < noOfBooks; i++) {
+                if (this.Book[i]==null)continue;
+                System.out.println("* "+this.Book[i]);
+            }
+        }
+        // Issued book
+        void issuedBook(String Book){
+            for (int i = 0; i < noOfBooks; i++) {
+                if (this.Book[i]==Book){
+                    this.Book[i]=null;
+                    System.out.println(Book+" book has been issued");
+                    return;
+                }
+              }
+            System.out.println(Book+" This book not found");
+            }
+
+            // Return book
+            void returnBook(String Book){
+        this.Book[noOfBooks++]=Book;
+            }
+    }
+public class library {
+    public static void main(String[] args) {
+        libraryapp centrallib = new libraryapp();
+
+        centrallib.addBook("why bharat is importent");
+        centrallib.addBook("Rich dad poor dad");
+        centrallib.addBook("Be Gental man");
+        centrallib.addBook("History of india");
+        centrallib.addBook("atomic habit");
+        centrallib.addBook("ramayan");
+        centrallib.displayBook();
+        centrallib.addBook("unfinished");
+        System.out.println();
+        centrallib.displayBook();
+        System.out.println();
+        centrallib.issuedBook("ramayan");
+        System.out.println();
+        centrallib.displayBook();
+        centrallib.returnBook("r");
+        centrallib.addBook("the breath become air");
+        centrallib.displayBook();
+        centrallib.issuedBook("History of india");
+        centrallib.displayBook();
+        centrallib.returnBook("");
+    }
+}
